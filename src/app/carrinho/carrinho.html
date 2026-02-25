@@ -1,0 +1,29 @@
+<h2 class="cart-tittle">Carrinho</h2>
+@if(itens_carrinho.length > 0){
+<div>
+    <ul>
+        @for(item of itens_carrinho; track item.id){
+            <li>
+                <img [src]="item.imagem">
+                <p>{{ item.descricao }}</p>
+                <p>{{ item.preco | currency: "BRL" }}</p>
+                <label>
+                    Quantidade:
+                    <input type="number" min="1" [(ngModel)]="item.quantidade" (change)="totalPagar()">
+                </label>
+                <button type="button" class="remove-button" (click)="removerCarrinho(item.id)">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px">
+                        <path d="M200-440v-80h560v80H200Z"/>
+                    </svg>
+                </button>
+            </li>
+        }
+    </ul>
+    <h2 class="cart-total">Total: {{total | currency: "BRL"}}</h2>
+    <button type="button" class="buy-button" (click)="comprar()">Comprar</button>
+</div>
+}@else {
+    <div class="vazio">
+        <h2>Seu carrinho está vazio!</h2>
+    </div>
+}

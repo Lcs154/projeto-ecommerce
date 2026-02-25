@@ -1,0 +1,13 @@
+section{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 380px;
+}
+h1{
+    font-size: 60px;
+}
+h3{
+    font-size: 44px;
+}

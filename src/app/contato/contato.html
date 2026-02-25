@@ -1,0 +1,132 @@
+<h2 class="contact__title">Entre em contato</h2>
+<section class="contact__container">
+    <form class="contact-form" [formGroup]="form_contato">
+        <label>
+            <input id="nome" type="text" placeholder="Digite o seu nome"
+                formControlName="nome"
+                [class.valid]="form_contato.controls['nome'].valid"
+                [class.invalid]="form_contato.controls['nome'].invalid &&
+                (form_contato.controls['nome'].touched || form_contato.controls['nome'].dirty)"
+            >
+            @if(form_contato.controls['nome'].invalid && (form_contato.controls['nome'].touched || form_contato.controls['nome'].dirty)){
+                <div>
+                    @if(form_contato.controls['nome'].hasError("minlength")){
+                        <small class="error-message">
+                            Campo com mínimo de 4 caracteres
+                        </small>
+                    }
+
+                    @if(form_contato.controls['nome'].hasError("required")){
+                        <small class="required">
+                            Campo obrigatório
+                        </small>
+                            
+                    }
+                </div>
+            }
+        </label>
+        
+        <label>
+            <input id="assunto" type="text" placeholder="Digite o assunto"
+                formControlName="assunto"
+                [class.valid]="form_contato.controls['assunto'].valid"
+                [class.invalid]="form_contato.controls['assunto'].invalid &&
+                (form_contato.controls['assunto'].touched || form_contato.controls['assunto'].dirty)"
+            >
+            @if(form_contato.controls['assunto'].invalid && (form_contato.controls['assunto'].touched || form_contato.controls['assunto'].dirty)){
+                <div>
+                    @if(form_contato.controls['assunto'].hasError("minlength")){
+                        <small class="error-message">
+                            Campo com mínimo de 10 caracteres
+                        </small>
+                    }
+
+                    @if(form_contato.controls['assunto'].hasError("required")){
+                        <small class="required">
+                            Campo obrigatório
+                        </small>
+                            
+                    }
+                </div>
+            }
+        </label>
+        
+        <label>
+            <input id="telefone" type="tel" placeholder="(00)00000-0000"
+                formControlName="telefone"
+                [class.valid]="form_contato.controls['telefone'].valid"
+                [class.invalid]="form_contato.controls['telefone'].invalid &&
+                (form_contato.controls['telefone'].touched || form_contato.controls['telefone'].dirty)"
+            >
+            @if(form_contato.controls['telefone'].invalid && (form_contato.controls['telefone'].touched || form_contato.controls['telefone'].dirty)){
+                <div>
+                    @if(form_contato.controls['telefone'].hasError("minlength")){
+                        <small class="error-message">
+                            Campo com mínimo de 11 caracteres
+                        </small>
+                    }
+
+                    @if(form_contato.controls['telefone'].hasError("required")){
+                        <small class="required">
+                            Campo obrigatório
+                        </small>
+                            
+                    }
+                </div>
+            }
+        </label>
+        <label>
+            <input id="email" type="email" placeholder="Digite o seu email"
+                formControlName="email"
+                [class.valid]="form_contato.controls['email'].valid"
+                [class.invalid]="form_contato.controls['email'].invalid &&
+                (form_contato.controls['email'].touched || form_contato.controls['email'].dirty)"
+            >
+            @if(form_contato.controls['email'].invalid && (form_contato.controls['email'].touched || form_contato.controls['email'].dirty)){
+                <div>
+                    @if(form_contato.controls['email'].hasError("email")){
+                        <small class="error-message">
+                            Preencha com um email válido
+                        </small>
+                    }
+
+                    @if(form_contato.controls['email'].hasError("required")){
+                        <small class="required">
+                            Campo obrigatório
+                        </small>
+                            
+                    }
+                </div>
+            }
+        </label>
+        <label>
+            <textarea id="mensagem" maxlength="300" placeholder="Digite a sua mensagem" rows="4"
+                formControlName="mensagem"
+                [class.valid]="form_contato.controls['mensagem'].valid"
+                [class.invalid]="form_contato.controls['mensagem'].invalid &&
+                (form_contato.controls['mensagem'].touched || form_contato.controls['mensagem'].dirty)">
+            </textarea>
+            @if(form_contato.controls['mensagem'].invalid && (form_contato.controls['mensagem'].touched || form_contato.controls['mensagem'].dirty)){
+                <div>
+                    @if(form_contato.controls['mensagem'].hasError("minlength")){
+                        <small class="error-message">
+                            Campo com mínimo de 20 caracteres
+                        </small>
+                    }
+
+                    @if(form_contato.controls['mensagem'].hasError("required")){
+                        <small class="required">
+                            Campo obrigatório
+                        </small>
+                    }
+                </div>
+            }
+        </label>
+        <button [disabled]="form_contato.invalid" type="button" (click)="enviarForm()">Enviar</button>
+    </form>
+
+    <address>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d58789.48729370054!2d-43.362833754931636!3d-22.93759335441614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bda3fddfcfad7%3A0x5a82fa8b1b14ae6b!2sCentro%20Universit%C3%A1rio%20IBMR%20Barra!5e0!3m2!1spt-BR!2sbr!4v1771974964265!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        <p>Av. das Américas, 2603 - Barra da Tijuca, Rio de Janeiro - RJ, 22631-002</p>
+    </address>
+</section>
